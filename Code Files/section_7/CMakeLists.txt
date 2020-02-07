@@ -1,0 +1,15 @@
+add_compile_options(-fsanitize=thread)
+add_executable(section_7_ex_1 example_1.cpp)
+add_executable(section_7_ex_2 example_2.cpp)
+add_executable(section_7_ex_3 example_3.cpp)
+add_executable(section_7_ex_4 example_4.cpp)
+add_executable(section_7_ex_5 example_5.cpp)
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+target_link_libraries(section_7_ex_1 Threads::Threads tsan)
+target_link_libraries(section_7_ex_2 Threads::Threads tsan)
+target_link_libraries(section_7_ex_3 Threads::Threads tsan)
+target_link_libraries(section_7_ex_4 Threads::Threads tsan)
+target_link_libraries(section_7_ex_5 Threads::Threads tsan)
